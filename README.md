@@ -1,6 +1,6 @@
 # REST API IssueTracker G13D 
 
-A web app made it with Angular, based on the issue tracker of Bitbucket.
+A web app made with Angular, based on the issue tracker of Bitbucket.
 
 ## Screenshots
 
