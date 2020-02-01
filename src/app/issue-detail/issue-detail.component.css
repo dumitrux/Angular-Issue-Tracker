@@ -1,0 +1,152 @@
+#asdwdqw {
+  color: #5E6C84;
+}
+
+#linkIssues {
+  color: #5E6C84;
+}
+
+#linkIssues:hover {
+  color: #5E6C84;
+  color: blue;
+}
+
+.linkVW {
+  color: blue;
+}
+
+.linkVW:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.nbVW {
+  background-color: #326ca6;
+  color: #fff;
+  font-size: 17px;
+  border-radius: 2em;
+  font-weight: 700;
+  line-height: .99;
+  min-height: 1em;
+  min-width: 1em;
+  padding: 2px 7px 2px;
+  position: relative;
+  text-shadow: none;
+  display: inline-block;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.statusSpan {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 99%;
+  margin: 0;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #4a6785;
+  border-color: #4a6785;
+  color: #fff;
+}
+
+.dateCreated {
+  color: #707070;
+  font-size: 14px;
+}
+
+.description {
+  font-style: italic;
+}
+
+#colDerecha {
+  margin: 0px 0px 0px 0px;
+  border: 1px solid #DFE1E6;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+#buttons {
+  margin-top: 65px;
+}
+
+#btnResolve {
+  border-top-left-radius: 3.01px !important;
+  border-bottom-left-radius: 3.01px !important;
+  background: #0052CC !important;
+  color: #FFF !important;
+  margin-right: 7px;
+  font-size: 13px;
+}
+
+#btnWorkflow {
+  font-size: 13px;
+}
+
+#btnDelte {
+  margin-left: 7px;
+  font-size: 13px;
+  background: #0052CC !important;
+}
+
+#btnEdit {
+  margin-left: 7px;
+  font-size: 13px;
+  background: #0052CC !important;
+}
+
+.profileImg {
+  width: 25px;
+}
+
+.myIcon {
+  width: 20px;
+}
+
+#selectWorkflow {
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.deleteAttchment {
+  background: #505F79;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  height: 20px;
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  width: 20px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+}
+
+.deleteAttchment:hover {
+  cursor: pointer;
+}
+
+.inDivAttachment {
+  display: block;
+  
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  position: relative;
+    float: left;
+    margin: 0 15px 13px 0;
+}

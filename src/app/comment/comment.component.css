@@ -1,0 +1,22 @@
+.divComment {
+    margin: 0px 0px 20px 0px;
+}
+
+.fechaSpan {
+    color: #707070;
+    font-size: 14px;
+}
+
+.linkComment {
+    color: #505F79;
+    margin: 0px 0px 0px 0px;
+}
+
+.linkComment:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.profileImg {
+    width: 45px;
+}

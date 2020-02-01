@@ -1,0 +1,14 @@
+#tituloSubPrincipal {
+
+}
+
+#divDashboard {
+}
+
+#btnCreateIssue {
+    background-color: #F4F5F7;
+}
+
+#btnCreateIssue:hover {
+    background-color: rgb(212, 212, 212);
+}

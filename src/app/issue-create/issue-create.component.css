@@ -1,0 +1,13 @@
+#createIssue {
+    margin-right: 15px;
+    font-size: 13px;
+    background: #0052CC !important;
+}
+
+#divForm {
+    margin: 50px 0px 0px 25px;
+}
+
+.requiredAsterisc {
+    color: red;
+}

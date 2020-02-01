@@ -1,0 +1,10 @@
+<br>
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="body" placeholder="What would you like to say?">
+  </div>
+  <button type="submit" [disabled]="!createForm.valid" id="btnSave" class="btn btn-primary">Save</button>
+  <input type="reset" value="Cancel" id="btnCancel" class="btn btn-light">
+</form>
+<br><br>
+

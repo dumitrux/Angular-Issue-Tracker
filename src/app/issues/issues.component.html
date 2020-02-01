@@ -1,0 +1,62 @@
+<div id="filterBy">
+  <span>Filter by:</span>
+  <span class="filterTop" (click)="getIssues()" id="filterAll">All</span>
+  <span class="filterTop" (click)="filterStatus('OPEN')" id="filterOpen">Open</span>
+  <span class="filterTop" (click)="filterAssignee()" id="filterMyIssues">My issues</span>
+  <span class="filterTop" (click)="filterWatching()" id="filterWatching">Watching</span>
+</div>
+
+<br>
+<h5>Issues (1-{{nbIssues}} of {{nbIssues}})</h5>
+
+<div id="divTable">
+  <table class="table table-hover" id="tableIssues">
+    <thead>
+      <tr>
+        <th (click)="orderBy('TITLE')" id='title' class="th">Title</th>
+        <th>T</th>
+        <th>P</th>
+        <th>Status</th>
+        <th (click)="orderBy('VOTES')" id='votes' class="th">Votes</th>
+        <th (click)="orderBy('ASSIGNEE')" id='assignee' class="th">Assignee</th>
+        <th (click)="orderBy('CREATEDAT')" id='createdat' class="th">Created</th>
+        <th (click)="orderBy('UPDATEDAT')" id='updatedat' class="th">Updated</th>
+        <th (click)="filterWatching()" id='updatedat' class="th">Watching</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let issue of issues" class="fila">
+        <td>
+          <a routerLink="/detail/{{issue.id}}">#{{issue.id}}: {{issue.title}}</a>
+        </td>
+        <td class="filter" (click)="filterType(issue.issueType)">
+          <img
+            src="https://d301sr5gafysq2.cloudfront.net/449064f33e31/img/issues/kinds/{{issue.issueType | lowercase}}.svg"
+            alt="iconType" class="myIcon">
+        </td>
+        <td class="filter" (click)="filterPriority(issue.priority)">
+          <img
+            src="https://d301sr5gafysq2.cloudfront.net/449064f33e31/img/issues/priorities/{{issue.priority | lowercase }}.svg"
+            alt="iconPriority" class="myIcon">
+        </td>
+        <td class="filter" (click)="filterStatus(issue.status)">
+          <span class="iconStatus">{{issue.status}}</span>
+        </td>
+        <td><span class='nbVotes'>{{issue.votes}}</span></td>
+        <td class="filterAssignee">
+          <div *ngIf="issue.assignee" (click)="filterAssigneeWithName(issue.assignee.username)">
+            <img src="{{issue.assignee.urlfoto}}" alt="perfilphoto" class="rounded-circle profileImg">
+            <span> {{issue.assignee.username}}</span>
+          </div>
+        </td>
+        <td>{{issue.createdAt | date:'H:mm:ss dd/MM/y'}}</td>
+        <td>{{issue.updatedAt | date:'H:mm:ss dd/MM/y'}}</td>
+        <td>
+          <span>
+            1
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

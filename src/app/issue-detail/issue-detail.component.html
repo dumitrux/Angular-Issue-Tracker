@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row" *ngIf="issue">
+    <div class="col-8">
+      <span id="asdwdqw">ASWG13D-Angular / </span><a routerLink="/dashboard" id="linkIssues">Issues</a>
+      <div>
+        <h2>{{issue.title}}</h2>
+        <div id="issue-header">
+          <p>Issue #{{issue.id}} <span class="statusSpan"> {{issue.status | lowercase}}</span></p>
+
+          <p>
+            <span *ngIf="issue.creator">{{issue.creator.username}}</span>
+            created an issue <span class="dateCreated">{{issue.createdAt | date:'H:mm:ss dd/MM/y'}}</span>
+          </p>
+          <p class="description">{{description}}</p>
+
+          <div *ngIf="issue.attachmentList">
+            <ul>
+              <div *ngFor="let attch of issue.attachmentList" class="inDivAttachment">
+                <li>
+                  <span (click)="deleteAttachment(attch.id)" class="deleteAttchment">X</span>
+                  <br>
+                  <a href="https://grup13aswd-rest-api-blabla.herokuapp.com/api/v1/attachments/{{attch.id}}">
+                    <img src="https://d301sr5gafysq2.cloudfront.net/449064f33e31/img/clip.png" alt="attachment">
+                    <br>
+                    {{attch.dirtyName}}
+                  </a>
+                </li>
+              </div>
+            </ul>
+            <br>
+          </div>
+
+
+          <div class="issue-toolbar">
+            <!-- ELEMENTOS RESOLVE WORKFLOW EDIT-->
+          </div>
+        </div>
+        <br><br>
+      </div>
+      <br><br>
+      <hr>
+      <app-comment [status]="issue.status"></app-comment>
+    </div>
+    <div class="col-4">
+      <div id="buttons">
+        <button class="btn btn-primary" type="button" id="btnResolve"
+          (click)="updateStatus('RESOLVED')">Resolve</button>
+        <label id="btnWorkflow">
+          Workflow:
+          <select class="form-control" id="selectWorkflow">
+            <option value="OPEN" (click)="updateStatus('OPEN')">open</option>
+            <option value="ONHOLD" (click)="updateStatus('ONHOLD')">on hold</option>
+            <option value="RESOLVED" (click)="updateStatus('RESOLVED')">resolved</option>
+            <option value="DUPLICATE" (click)="updateStatus('DUPLICATE')">duplicate</option>
+            <option value="INVALID" (click)="updateStatus('INVALID')">invalid</option>
+            <option value="WONTFIX" (click)="updateStatus('WONTFIX')">wontfix</option>
+            <option value="CLOSED" (click)="updateStatus('CLOSED')">closed</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" type="button" (click)="deleteIssue()" id="btnDelte">Delete</button>
+        <button class="btn btn-primary" type="button" routerLink="/issues/edit/{{issue.id}}" id="btnEdit">Edit</button>
+      </div>
+
+
+      <div id="colDerecha">
+        <p>Assignee
+          <img *ngIf="issue.assignee" src="{{issue.assignee.urlfoto}}" alt="photo profile"
+            class="rounded-circle profileImg">
+          <a *ngIf="issue.assignee" href="/dashboard?assignee={{issue.assignee.username}}">
+            {{issue.assignee.username}}</a>
+        </p>
+        <p>Type
+          <a href="/dashboard?type={{issue.issueType | lowercase}}">
+            <img
+              src="https://d301sr5gafysq2.cloudfront.net/449064f33e31/img/issues/kinds/{{issue.issueType | lowercase}}.svg"
+              alt="iconType" class="myIcon">
+            {{issue.issueType | lowercase}}
+          </a>
+        </p>
+        <p>Priority
+          <a href="/dashboard?priority={{issue.priority | lowercase}}">
+            <img
+              src="https://d301sr5gafysq2.cloudfront.net/449064f33e31/img/issues/priorities/{{issue.priority | lowercase }}.svg"
+              alt="iconPriority" class="myIcon">
+            {{issue.priority | lowercase}}</a>
+        </p>
+        <p>Status
+          <a href="/dashboard?status={{issue.status | lowercase}}">{{issue.status | lowercase}}</a>
+        </p>
+        <p>Votes
+          <span class="nbVW"> {{issue.votes}} </span>
+          <span (click)="voteIssue()" class="linkVW"> Vote for this issue</span>
+        </p>
+        <p>Watchers
+          <span class="nbVW">{{issue.watchers}} </span>
+          <span (click)="watchIssue()" class="linkVW"> Watch this issue</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

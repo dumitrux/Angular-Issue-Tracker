@@ -1,0 +1,86 @@
+<div class="container">
+    <div id="divForm">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <div class="col-1">
+                    <label for="inputTitle" class="col-form-label">Title <span class="requiredAsterisc">*</span></label>
+                </div>
+                <div class="col-10">
+                    <input type="text" formControlName="title" class="form-control" required>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-1">
+                    <label class="col-form-label">Description</label>
+                </div>
+                <div class="col-10">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        formControlName="description"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-1">
+                    <label class="col-form-label">Assignee</label>
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" formControlName="assignee" list="currentUsers">
+                    <datalist id="currentUsers">
+                        <option *ngFor="let user of users" value="{{user.username}}">{{user.username}}</option>
+                    </datalist>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-1">
+                    <label class="col-form-label">Kind <span class="requiredAsterisc">*</span></label>
+                </div>
+                <div class="col-3">
+                    <select class="form-control" formControlName="issueType" [(ngModel)]='kindSelect' required>
+                        <option value="BUG">bug</option>
+                        <option value="ENHANCEMENT">enhancement</option>
+                        <option value="PROPOSAL">proposal</option>
+                        <option value="TASK">task</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-1">
+                    <label class="col-form-label">Priority <span class="requiredAsterisc">*</span></label>
+                </div>
+                <div class="col-3">
+                    <select class="form-control" formControlName="priority" [(ngModel)]='prioritySelect' required>
+                        <option value="TRIVIAL">trivial</option>
+                        <option value="MINOR">minor</option>
+                        <option value="MAJOR">major</option>
+                        <option value="CRITICAL">critical</option>
+                        <option value="BLOCKER">blocker</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-1">
+                    <label class="col-form-label">Attachments</label>
+                </div>
+                <div class="col-3">
+                    <input type="file" multiple (change)="fileChange($event)">
+                </div>
+            </div>
+
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <button type="submit" id="createIssue" [disabled]="!createForm.valid"
+                        class="btn btn-primary">Submit</button>
+                    <a routerLink="/dashboard">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

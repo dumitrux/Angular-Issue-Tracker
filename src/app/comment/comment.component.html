@@ -1,0 +1,24 @@
+<div>
+  <h4>Comments ({{nbComments}})</h4>
+  <div *ngFor="let comment of comments" class="divComment">
+    <div class="row">
+      <div class="col-1">
+        <div>
+          <img src="{{comment.creator.urlfoto}}" alt="perfilphoto" class="rounded-circle profileImg">
+        </div>
+      </div>
+      <div class="col-11">
+        <p>{{comment.creator.username}}</p>
+        <p>{{comment.body}}</p>
+        <span *ngIf="comment.creator.username == currentusername && comment.system == false"><a
+            (click)="editComment(comment.id)" class="linkComment">Edit</a> • </span>
+        <span *ngIf="comment.creator.username == currentusername && comment.system == false"><a
+            (click)="deleteComment(comment.id)" class="linkComment">Delete</a> • </span>
+        <span class="fechaSpan"> {{comment.updatedAt | date:'H:mm:ss dd/MM/y'}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<app-comment-create (created)="onCreated($event)">
+</app-comment-create>

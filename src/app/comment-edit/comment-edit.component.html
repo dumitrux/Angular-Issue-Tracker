@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Comment</h2>
+  <br>
+  <h3>Edit comment</h3>
+  <br>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+      <div class="col-1">
+        <label class="col-form-label">Body</label>
+      </div>
+      <div class="col-10">
+        <input type="text" formControlName="body">
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!createForm.valid" id="editComment">Edit comment</button>
+  </form>
+</div>
